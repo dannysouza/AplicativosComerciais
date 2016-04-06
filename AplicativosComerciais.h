@@ -1,6 +1,8 @@
 #ifndef APLICATIVOSCOMERCIAIS_H
 #define APLICATIVOSCOMERCIAIS_H
 
+#include "Clientes.h"
+
 class AplicativosComerciais
 {
 public:

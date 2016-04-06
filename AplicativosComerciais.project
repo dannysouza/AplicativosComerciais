@@ -93,5 +93,7 @@
   <VirtualDirectory Name="src">
     <File Name="AplicativosComerciais.h"/>
     <File Name="AplicativosComerciais.cpp"/>
+    <File Name="Clientes.h"/>
+    <File Name="Clientes.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
