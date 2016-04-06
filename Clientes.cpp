@@ -17,24 +17,26 @@ void Clientes::novoCliente()
     cout << "\n Telefone: ";
     cin >> telefone;
 
-    cout << "\n Cargo: ";
-    cin >> cargo
+    cout << "\n E-mail: ";
+    cin >> email
 
-    cout << "\n Salario: ";
-    cin >> salario
-
-    cout << "\n Carga horaria: ";
-    cin >> cargaHoraria;
-
-    cout << "\n Data de admissao: ";
-    cin >> dataAdmissao;
+    cout << "\n Data do cadastro: ";
+    cin >> dataCliente;
     
-    cliente += ".txt"; 
     ofstream arquivo;
-    arquivo.open(cliente.c_str(), ios::app);
-    arquivo << " Nome: " << cliente << "\n Telefone: " << telefone << "\n Cargo: " << cargo << "\n Salario: " << salario << "\n Carga horaria: " << cargaHoraria << "\n Data de admissao: " << dataAdmissao << endl;
+    arquivo.open((cliente + ".txt").c_str(), ios::app);
+    arquivo << " Nome: " << cliente << "\n Telefone: " << telefone << "\n E-mail: " << email << "\n Cliente desde : " << dataCliente << endl;
+    
+    vetorClientes.push_back(cliente);
     
     cout << "\n Cliente cadastrado com sucesso. ";
 }
+
+void Clientes::listarClientes()
+{
+    for(int i=0; vetorClientes.size(); i++)
+        cout << vetorClientes[i];
+}
+
 
 

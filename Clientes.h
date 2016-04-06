@@ -8,7 +8,7 @@ public:
     ~Clientes();
 
     void novoCliente();
-    void procurar();
+    void listarClientes();
     void alterar();
     void apagar();
     
@@ -19,11 +19,10 @@ public:
 private:
     string cliente;
     int telefone;
-    string cargo;
-    float salario;
-    Data dataAdmissao;
-    int cargaHoraria;
-    bool ativo;
+    string email;
+    Data dataCliente;
+    
+    vector<string> vetorClientes;
     
 };
 
