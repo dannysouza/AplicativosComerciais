@@ -95,5 +95,7 @@
   <VirtualDirectory Name="src">
     <File Name="Loja.h"/>
     <File Name="Loja.cpp"/>
+    <File Name="LojaMatriz.h"/>
+    <File Name="LojaMatriz.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

@@ -1,5 +1,8 @@
 #include "Loja.h"
 
+#include <iostream>
+#include <vector>
+
 Loja::Loja(const string &nome, string end, string horario, string ramo, int tel)
 {
 	this->nomeLoja = nome;
@@ -21,9 +24,6 @@ Loja::Loja(const Loja &outro)
 Loja::~Loja()
 {
 }
-
-void Loja::procurarProduto()
-{
 	entrada.procurarProduto();
 }
 
@@ -34,12 +34,34 @@ void Loja::cadastrarVenda()
 
 void Loja::cadastrarCliente()
 {
-	String cliente;
-	
-	cout << "\n Nome do cliente: ";
-	cin >> cliente; 
-	
-	clientes.push_back(cliente);
+    String cliente, dataCliente, email;
+    int telefone; 
+    
+    cout << "\n Nome do cliente: ";
+    cin >> cliente;
+
+    cout << "\n Telefone: ";
+    cin >> telefone;
+
+    cout << "\n E-mail: ";
+    cin >> email
+
+    cout << "\n Data do cadastro: ";
+    cin >> dataCliente;
+    
+    ofstream arquivo;
+    arquivo.open((cliente + ".txt").c_str(), ios::app);
+    arquivo << " Nome: " << cliente << "\n Telefone: " << telefone << "\n E-mail: " << email << "\n Cliente desde : " << dataCliente << endl;
+    
+    vetorClientes.push_back(cliente);
+    
+    cout << "\n Cliente cadastrado com sucesso. ";
+}
+
+void Loja::listarClientes()
+{
+    for(int i=0; vetorClientes.size(); i++)
+        cout << vetorClientes[i];
 }
 
 void Loja::contratarFuncionario()
@@ -67,11 +89,11 @@ void Loja::contratarFuncionario()
 				cout << "\n Taxa de comissao: ";
 				cin >> taxa;
 			
-				funcionarios.push_back(new Atendente(nome, salario, taxa));
+				vetorFuncionarios.push_back(new Atendente(nome, salario, taxa));
 				break;
 				
 			case 2:
-				funcionarios.push_back(new Gerente(nome, salario));
+				vetorFuncionarios.push_back(new Gerente(nome, salario));
 				break;
 				
 			default:
@@ -97,4 +119,29 @@ void Loja::contratarFuncionario()
 		}
 	}
 	while (opc != 0);
+}
+
+void Loja::demitirFuncionario()
+{
+    cout << "\n Nome do funcionario: ";
+    cin >> nome; 
+    
+    cout << "\n Tem certeza que deseja demitir " >> nome >> "? (S/N)";
+    cin >> opc;
+    
+    switch (opc)
+    {
+        case 'n':
+        case 'N':
+            break;
+            
+        case 's':
+        case 'S':
+            // (Aplicação do método "erase")
+            cout << nome << " demitido.";
+            break;
+            
+        default:
+            cout << "\n Opçao invalida. Tente novamente. ";
+    }
 }
